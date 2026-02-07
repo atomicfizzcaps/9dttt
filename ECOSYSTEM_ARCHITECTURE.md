@@ -1,17 +1,66 @@
-# 🌐 AtomicFizzCaps Ecosystem Architecture
+# 🌐 Unwrenchable Project Portfolio & Ecosystem Architecture
 
 ## Overview
 
-The **AtomicFizzCaps.xyz** ecosystem is a multi-chain gaming economy spanning Solana, XRP Ledger, and Ethereum. This document explains how **9dttt.com** fits into the broader ecosystem.
+The **Unwrenchable** project portfolio consists of multiple interconnected platforms serving gaming, social, and healthcare needs. The **AtomicFizzCaps.xyz** ecosystem is the core gaming economy spanning Solana, XRP Ledger, and Ethereum. This document explains how **9dttt.com** and other Unwrenchable projects fit together.
 
 ---
 
-## 🏗️ Ecosystem Structure
+## 📂 Complete Unwrenchable Portfolio
+
+### 1. **Gaming & Token Economy**
+
+**[atomicfizzcaps.xyz](https://github.com/Unwrenchable/ATOMIC-FIZZ-CAPS-VAULT-77-WASTELAND-GPS)** - Main Ecosystem
+- Platform: Solana (PRIMARY)
+- Token: SPL token (EXISTS on testnet)
+- Features: Vault 77, Wasteland GPS, NFTs, DeFi
+- Allocation: 50M FIZZ (65%)
+
+**[9dttt.com](https://github.com/Unwrenchable/9dttt)** - XRP Gaming Layer (THIS REPO)
+- Platform: XRP Ledger (SECONDARY)
+- Token: XRP token (ready to deploy)
+- Features: 31 games, tournaments, leaderboards
+- Allocation: 20M FIZZ (26%)
+
+### 2. **Social & Community**
+
+**[supreme-goggles](https://github.com/Unwrenchable/supreme-goggles)** - SNS Platform
+- Type: Social Networking Service
+- Purpose: Community hub for users across all platforms
+- Integration: Can share auth with gaming platforms
+- Token: Potential FIZZ integration for social rewards
+
+### 3. **Healthcare & Utilities**
+
+**[fluffy-memory](https://github.com/Unwrenchable/fluffy-memory)** - Medical Assistance Platform
+- Purpose: Help people find medical assistance
+- Features: Insurance search, paperwork help, disability support
+- Integration: Separate utility, but could share user profiles
+- Token: Could accept FIZZ for premium features
+
+---
+
+## 🏗️ Full Ecosystem Structure
 
 ```
+┌───────────────────────────────────────────────────────────────────┐
+│                   Unwrenchable Portfolio                          │
+│           Multi-Platform Project Ecosystem                        │
+└───────────────────────────────────────────────────────────────────┘
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        │                     │                     │
+        ▼                     ▼                     ▼
+┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│   Gaming &   │    │   Social &   │    │  Healthcare  │
+│   Economy    │    │  Community   │    │  & Utility   │
+└──────────────┘    └──────────────┘    └──────────────┘
+        │                     │                     │
+        ▼                     ▼                     ▼
+
 ┌─────────────────────────────────────────────────────────────┐
-│         AtomicFizzCaps.xyz Ecosystem                        │
-│         Cross-Chain Gaming Economy                          │
+│         AtomicFizzCaps.xyz Gaming Ecosystem                 │
+│         (Cross-Chain Gaming Economy)                        │
 └─────────────────────────────────────────────────────────────┘
                             │
         ┌───────────────────┴───────────────────┐
@@ -22,11 +71,11 @@ The **AtomicFizzCaps.xyz** ecosystem is a multi-chain gaming economy spanning So
 │  (PRIMARY)       │◄─────bridge──────►│  (SECONDARY)     │
 ├──────────────────┤                   ├──────────────────┤
 │ atomicfizzcaps   │                   │    9dttt.com     │
-│      .xyz        │                   │                  │
+│      .xyz        │                   │   (THIS REPO)    │
 ├──────────────────┤                   ├──────────────────┤
 │ SPL Token        │                   │ XRP Token        │
-│ (EXISTS on       │                   │ (This Repo)      │
-│  testnet)        │                   │                  │
+│ (EXISTS on       │                   │ (Ready to        │
+│  testnet)        │                   │  deploy)         │
 ├──────────────────┤                   ├──────────────────┤
 │ Main vault/GPS   │                   │ 31 Games         │
 │ Wasteland game   │                   │ Game platform    │
@@ -37,14 +86,27 @@ The **AtomicFizzCaps.xyz** ecosystem is a multi-chain gaming economy spanning So
         └───────────────────┬───────────────────┘
                             │
                             ▼
-                ┌───────────────────────┐
-                │  Multi-Chain Wallet   │
-                ├───────────────────────┤
-                │ • Phantom (Solana)    │
-                │ • XUMM (XRP)          │
-                │ • Crossmark (XRP)     │
-                │ • MetaMask (Ethereum) │
-                └───────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                   Shared Infrastructure                      │
+├─────────────────────────────────────────────────────────────┤
+│  Multi-Chain Wallet   │  Universal Auth  │  User Profiles  │
+│  • Phantom (Solana)   │  • OAuth         │  • Cross-platform│
+│  • XUMM (XRP)         │  • Wallet auth   │  • Unified data  │
+│  • Crossmark (XRP)    │  • Session mgmt  │  • Sync enabled  │
+│  • MetaMask (ETH)     │                  │                  │
+└─────────────────────────────────────────────────────────────┘
+                            │
+        ┌───────────────────┴───────────────────┐
+        │                                       │
+        ▼                                       ▼
+┌──────────────────┐                   ┌──────────────────┐
+│ supreme-goggles  │                   │ fluffy-memory    │
+├──────────────────┤                   ├──────────────────┤
+│ SNS Platform     │                   │ Medical Aid      │
+│ Social features  │                   │ Platform         │
+│ Community hub    │                   │ Healthcare tools │
+│ Token rewards    │                   │ Insurance search │
+└──────────────────┘                   └──────────────────┘
 ```
 
 ---
@@ -351,6 +413,112 @@ https://9dttt.com/api/
 
 ---
 
+## 🔗 Cross-Project Integration Opportunities
+
+### Shared Authentication System
+All Unwrenchable projects can benefit from unified authentication:
+- **Single Sign-On (SSO)**: Log in once, access all platforms
+- **Wallet-based Auth**: Use crypto wallet as universal identity
+- **OAuth Integration**: Traditional auth for non-crypto users
+- **Profile Sync**: User data shared across platforms (with permission)
+
+### Token Economy Integration
+
+**Gaming Projects (atomicfizzcaps.xyz + 9dttt.com):**
+- Native FIZZ token integration ✅
+- Earn and spend across both platforms
+- Cross-chain bridge for asset movement
+
+**Social Platform (supreme-goggles):**
+- Optional FIZZ integration for social rewards
+- Tip users with FIZZ tokens
+- Premium features purchasable with FIZZ
+- Gaming achievements display
+- Share game scores and leaderboards
+
+**Medical Platform (fluffy-memory):**
+- Separate primary focus (healthcare access)
+- Optional premium features with FIZZ
+- User profile connection (optional)
+- Potential charity/donation features using FIZZ
+
+### Data Sharing (Privacy-Focused)
+
+**User Profiles:**
+- **Gaming**: Game stats, achievements, wallet addresses
+- **Social**: Posts, connections, preferences
+- **Medical**: Separate secure profile (HIPAA compliant)
+- **Shared**: Username, avatar, basic bio (user controlled)
+
+**Integration Levels:**
+1. **None**: Completely separate accounts
+2. **Light**: Shared login, separate data
+3. **Medium**: Shared profile basics + selective data
+4. **Full**: Deep integration across all platforms
+
+### Technical Integration
+
+**Shared Components:**
+- Authentication microservice
+- User profile service
+- Notification system
+- Analytics platform
+- Payment/wallet integration
+
+**APIs:**
+- RESTful APIs for inter-project communication
+- GraphQL for flexible data queries
+- WebSocket for real-time features
+- Standard auth tokens (JWT)
+
+### Benefits of Portfolio Integration
+
+**For Users:**
+- Single account across all platforms
+- Unified token for multiple services
+- Seamless cross-platform experience
+- One wallet for everything
+
+**For Projects:**
+- Shared user base growth
+- Cross-promotion opportunities
+- Reduced development duplication
+- Stronger network effects
+
+**For Ecosystem:**
+- Increased token utility
+- Greater value proposition
+- Competitive differentiation
+- Community cohesion
+
+### Implementation Strategy
+
+**Phase 1: Gaming Focus (Current)**
+- Focus on atomicfizzcaps.xyz + 9dttt.com integration
+- FIZZ token as primary economy
+- Cross-chain bridge development
+- Shared wallet infrastructure
+
+**Phase 2: Social Integration (Future)**
+- Add supreme-goggles to shared auth
+- Implement social features
+- Gaming-social platform connection
+- Community growth initiatives
+
+**Phase 3: Healthcare Utility (Future)**
+- Integrate fluffy-memory with privacy focus
+- Optional profile linking
+- Potential charitable use cases
+- Separate security considerations
+
+**Phase 4: Full Ecosystem (Long-term)**
+- All projects interconnected
+- Unified Unwrenchable platform
+- FIZZ as universal currency
+- Complete user journey across all services
+
+---
+
 ## 🚀 Roadmap
 
 ### Phase 1: Current (Testnet)
@@ -413,6 +581,16 @@ This is part of the broader Unwrenchable ecosystem:
 **Organization:**
 - [Unwrenchable GitHub](https://github.com/Unwrenchable) - All projects
 
+**Gaming & Token Economy:**
+- [atomicfizzcaps.xyz](https://github.com/Unwrenchable/ATOMIC-FIZZ-CAPS-VAULT-77-WASTELAND-GPS) - Main ecosystem (Solana)
+- [9dttt.com](https://github.com/Unwrenchable/9dttt) - XRP gaming layer (this repo)
+
+**Social & Community:**
+- [supreme-goggles](https://github.com/Unwrenchable/supreme-goggles) - SNS platform
+
+**Healthcare & Utilities:**
+- [fluffy-memory](https://github.com/Unwrenchable/fluffy-memory) - Medical assistance platform
+
 **Contributing:**
 1. Fork the relevant repository
 2. Create feature branch
@@ -440,23 +618,65 @@ This is part of the broader Unwrenchable ecosystem:
 
 ## ❓ FAQ
 
-**Q: Are these two separate tokens?**
-A: No, it's the same FIZZ token bridged across chains.
+### Gaming & Token Economy
+
+**Q: Are these two separate tokens (Solana and XRP)?**
+A: No, it's the same FIZZ token bridged across chains. Total supply is fixed at 77M.
 
 **Q: Which chain should I use?**
-A: Start on XRP (9dttt.com) for gaming, bridge to Solana for full ecosystem features.
+A: Start on XRP (9dttt.com) for gaming, bridge to Solana (atomicfizzcaps.xyz) for full ecosystem features.
 
 **Q: Can I lose tokens when bridging?**
 A: No, bridge uses lock/unlock mechanism - tokens are never burned or lost.
 
 **Q: Why two separate websites?**
-A: Different focus - 9dttt.com for casual gaming, atomicfizzcaps.xyz for full ecosystem.
+A: Different focus - 9dttt.com for casual gaming (31 games), atomicfizzcaps.xyz for full ecosystem (Vault 77, NFTs, DeFi).
 
 **Q: Which came first?**
-A: AtomicFizzCaps.xyz with Solana SPL token. 9dttt.com adds XRP layer.
+A: AtomicFizzCaps.xyz with Solana SPL token (already deployed). 9dttt.com adds XRP layer.
 
 **Q: When will the bridge be live?**
 A: Currently in testing. Mainnet launch planned for Q2 2026.
+
+### Full Portfolio
+
+**Q: What is supreme-goggles?**
+A: SNS (Social Networking Service) platform where users can connect, share, and potentially earn FIZZ tokens for social activity.
+
+**Q: What is fluffy-memory?**
+A: Medical assistance platform helping people find healthcare resources, insurance options, and disability support. Separate from gaming but can share authentication.
+
+**Q: Will all projects use FIZZ token?**
+A: Gaming projects (atomicfizzcaps.xyz + 9dttt.com) natively use FIZZ. Social platform may integrate for rewards. Medical platform is separate utility but could accept FIZZ for premium features.
+
+**Q: Do I need separate accounts for each project?**
+A: Not necessarily. Projects can share authentication (SSO), but you control what data is shared between platforms.
+
+**Q: How are these projects connected?**
+A: They're all part of the Unwrenchable portfolio. Gaming projects share token economy. Social and medical platforms can optionally integrate with shared auth and profiles.
+
+**Q: Why build multiple projects?**
+A: To create a comprehensive ecosystem serving different needs - gaming/economy, social connection, and healthcare access. Each strengthens the overall network.
+
+**Q: Can I use my gaming wallet on social platform?**
+A: Yes, wallet-based authentication works across projects. Your crypto wallet becomes your universal identity.
+
+**Q: Is my medical data shared with gaming platforms?**
+A: No. fluffy-memory keeps healthcare data completely separate (HIPAA compliant). Only basic profile info (username/avatar) can be optionally shared.
+
+### Technical
+
+**Q: Which project should developers start with?**
+A: Depends on interest: 
+- Gaming development → atomicfizzcaps.xyz or 9dttt.com
+- Social features → supreme-goggles
+- Healthcare tools → fluffy-memory
+
+**Q: Can I contribute to multiple projects?**
+A: Yes! All repositories are open for contributions. Start with one, expand to others.
+
+**Q: Do projects share code?**
+A: Some shared libraries (auth, wallet integration). Each project has unique codebase for its specific features.
 
 ---
 
@@ -475,7 +695,7 @@ A: Currently in testing. Mainnet launch planned for Q2 2026.
 ---
 
 **Last Updated**: 2026-02-07  
-**Version**: 1.0  
+**Version**: 2.0  
 **Status**: Active Development
 
-**The AtomicFizzCaps ecosystem - Unified economy, multiple chains, infinite possibilities.** 🚀
+**The Unwrenchable Portfolio - Gaming, Social, Healthcare - Unified by innovation.** 🚀
