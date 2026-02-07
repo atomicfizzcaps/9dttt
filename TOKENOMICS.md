@@ -4,10 +4,26 @@
 
 **Token Name**: FIZZ Token (Atomic Fizz Caps)  
 **Total Supply**: 77,000,000 FIZZ (FIXED - pre-minted at launch)  
-**Native Chain**: Solana (SPL Token)  
+**Primary Chain**: Solana (SPL Token - ALREADY EXISTS on testnet)  
+**Secondary Chain**: XRP Ledger (This repo - 9dttt.com)  
 **Decimals**: 6  
 **Distribution Model**: Treasury-Based (NO MINTING)  
-**Additional Chains**: XRP Ledger, Ethereum (via bridge)
+**Additional Chains**: Ethereum (via bridge)
+
+### Multi-Chain Deployment Status
+
+**Solana (Primary):**
+- ✅ SPL Token deployed on testnet
+- ✅ Managed by [atomicfizzcaps.xyz](https://github.com/Unwrenchable/ATOMIC-FIZZ-CAPS-VAULT-77-WASTELAND-GPS)
+- ✅ Main treasury and ecosystem hub
+
+**XRP Ledger (Secondary):**
+- 🔄 Ready for deployment (this repo)
+- 🔄 Gaming rewards distribution
+- 🔄 Bridge integration with Solana
+
+**Ethereum (Tertiary):**
+- ⏳ Future expansion
 
 ---
 
@@ -38,6 +54,29 @@ Distribution = Treasury SENDS tokens to players
 
 ### Total Supply: 77,000,000 FIZZ (Fixed)
 
+**Cross-Chain Allocation:**
+
+```
+Solana (Primary):            50,000,000 FIZZ (65%)
+├─ Already deployed on testnet
+├─ Managed by atomicfizzcaps.xyz
+├─ Main treasury and reserves
+└─ DeFi and NFT liquidity
+
+XRP Ledger (Secondary):      20,000,000 FIZZ (26%)
+├─ 9dttt.com gaming rewards
+├─ XRP DEX liquidity
+├─ Cross-chain bridge reserve
+└─ Community distributions
+
+Ethereum (Tertiary):          7,000,000 FIZZ (9%)
+├─ CEX listings (future)
+├─ Ethereum DeFi access
+└─ Institutional integration
+```
+
+**By Function:**
+
 ```
 Treasury Reserve:      30,800,000 FIZZ (40%)
 ├─ Gaming Rewards Pool
@@ -46,14 +85,13 @@ Treasury Reserve:      30,800,000 FIZZ (40%)
 └─ Future Distribution
 
 Gaming Rewards:        15,400,000 FIZZ (20%)
-├─ Crypto Quest rewards
-├─ Pong rewards
-├─ Backgammon rewards
-└─ All other games
+├─ 9dttt.com games (XRP layer)
+├─ Vault 77 (Solana layer)
+├─ Cross-game achievements
+└─ Tournament prizes
 
 Liquidity Pools:       11,550,000 FIZZ (15%)
-├─ Solana DEX (PRIMARY): 5,000,000 FIZZ
-│  └─ Initial: 5 SOL paired with 5M FIZZ
+├─ Solana DEX: 5,000,000 FIZZ
 ├─ XRP DEX: 4,000,000 FIZZ
 ├─ Ethereum DEX: 2,000,000 FIZZ
 └─ Market making: 550,000 FIZZ
@@ -454,3 +492,72 @@ Initial Market Cap: ~$7.7M (fully diluted)
 - Maintain 77M total supply across all chains
 
 ---
+
+---
+
+## 🌐 Ecosystem Integration
+
+### AtomicFizzCaps Multi-Chain Architecture
+
+**9dttt.com (this repo)** is the **XRP Layer** of the broader AtomicFizzCaps.xyz ecosystem:
+
+```
+┌─────────────────────────────────────────────┐
+│    AtomicFizzCaps.xyz Ecosystem             │
+├─────────────────────────────────────────────┤
+│                                             │
+│  Solana Layer (PRIMARY)                     │
+│  ├─ atomicfizzcaps.xyz                      │
+│  ├─ SPL Token (EXISTS on testnet)           │
+│  ├─ Vault 77 Wasteland GPS                  │
+│  ├─ NFT Marketplace                         │
+│  └─ DeFi Features                           │
+│                                             │
+│  XRP Layer (SECONDARY)                      │
+│  ├─ 9dttt.com (this repo)                   │
+│  ├─ XRP Token (ready to deploy)             │
+│  ├─ 31 Browser Games                        │
+│  ├─ Tournament System                       │
+│  └─ Leaderboards                            │
+│                                             │
+│  Bridge Layer                               │
+│  ├─ Lock/Unlock mechanism                   │
+│  ├─ Cross-chain transfers                   │
+│  └─ Unified treasury management             │
+└─────────────────────────────────────────────┘
+```
+
+### Repository Structure
+
+**Main Ecosystem Hub:**
+- Repository: https://github.com/Unwrenchable/ATOMIC-FIZZ-CAPS-VAULT-77-WASTELAND-GPS
+- Token: SPL (Solana) - Already deployed on testnet
+- Features: Vault 77, NFTs, DeFi, main economy
+
+**XRP Gaming Portal:**
+- Repository: https://github.com/Unwrenchable/9dttt (THIS REPO)
+- Token: XRP Ledger - Ready for deployment
+- Features: 31 games, tournaments, leaderboards
+
+### How They Work Together
+
+**Player Journey:**
+1. Play games on **9dttt.com** (XRP layer)
+2. Earn in-game CAPS (virtual currency)
+3. Redeem CAPS for FIZZ tokens on XRP
+4. Optional: Bridge to Solana for full ecosystem
+5. Use FIZZ on **atomicfizzcaps.xyz** for:
+   - Vault 77 gameplay
+   - NFT purchases
+   - DeFi staking
+   - DAO governance
+
+**Token Flow:**
+- Same FIZZ token across all chains
+- Total supply: 77M (constant)
+- Bridge locks on source, unlocks on target
+- No burning or minting
+- Transparent treasury management
+
+**See [ECOSYSTEM_ARCHITECTURE.md](ECOSYSTEM_ARCHITECTURE.md) for complete details.**
+

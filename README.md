@@ -31,7 +31,17 @@
 
 **Version 2.0 - Full Stack Edition** 🚀
 
-9DTTT (Nine Dimensional Tic-Tac-Toe Tournament Tournament Tournament) has evolved into a comprehensive full-stack game platform featuring 31 games, complete backend API, and real interactive educational experiences.
+9DTTT (Nine Dimensional Tic-Tac-Toe Tournament Tournament Tournament) is the **XRP Layer** of the [AtomicFizzCaps.xyz](https://atomicfizzcaps.xyz) ecosystem - a comprehensive full-stack game platform featuring 31 games, complete backend API, and cross-chain token integration.
+
+### 🌐 Ecosystem Role
+
+**9dttt.com** serves as the **XRP integration layer** in the multi-chain AtomicFizzCaps gaming economy:
+
+- **Primary Hub**: [atomicfizzcaps.xyz](https://github.com/Unwrenchable/ATOMIC-FIZZ-CAPS-VAULT-77-WASTELAND-GPS) - Solana SPL token (already deployed on testnet)
+- **XRP Layer**: 9dttt.com (this repo) - Provides XRP Ledger integration and gaming portal
+- **Shared Economy**: Same FIZZ token across both chains via bridge
+
+**See [ECOSYSTEM_ARCHITECTURE.md](ECOSYSTEM_ARCHITECTURE.md) for complete architecture details.**
 
 ### 🆕 What's New in v2.0
 
