@@ -4,9 +4,10 @@
 
 **Token Name**: FIZZ Token (Atomic Fizz Caps)  
 **Total Supply**: 77,000,000 FIZZ (FIXED - pre-minted at launch)  
+**Native Chain**: Solana (SPL Token)  
 **Decimals**: 6  
 **Distribution Model**: Treasury-Based (NO MINTING)  
-**Chains**: XRP Ledger, Solana, Ethereum
+**Additional Chains**: XRP Ledger, Ethereum (via bridge)
 
 ---
 
@@ -51,9 +52,11 @@ Gaming Rewards:        15,400,000 FIZZ (20%)
 └─ All other games
 
 Liquidity Pools:       11,550,000 FIZZ (15%)
-├─ DEX liquidity
-├─ Bridge liquidity
-└─ Market making
+├─ Solana DEX (PRIMARY): 5,000,000 FIZZ
+│  └─ Initial: 5 SOL paired with 5M FIZZ
+├─ XRP DEX: 4,000,000 FIZZ
+├─ Ethereum DEX: 2,000,000 FIZZ
+└─ Market making: 550,000 FIZZ
 
 Community/Marketing:    7,700,000 FIZZ (10%)
 ├─ Airdrops
@@ -402,3 +405,52 @@ contract FizzToken is ERC20, Ownable {
 **Total Supply**: 77,000,000 FIZZ (fixed forever)  
 **Distribution Model**: Treasury-Based (NO MINTING)  
 **Updated**: 2026-02-07
+
+---
+
+## 🚀 Launch Strategy
+
+### Primary Launch: Solana (Native Chain)
+
+**Why Solana First:**
+- Native SPL token standard
+- Low transaction fees (<$0.01)
+- Fast confirmation times (~400ms)
+- Strong DeFi ecosystem (Raydium, Orca, Jupiter)
+- Gaming-friendly infrastructure
+
+**Initial Liquidity Pool:**
+```
+Platform: Raydium
+Pair: FIZZ/SOL
+SOL Side: 5 SOL (~$500-750)
+FIZZ Side: 5,000,000 FIZZ (6.5% of supply)
+Target Price: $0.0001 per FIZZ
+Initial Market Cap: ~$7.7M (fully diluted)
+```
+
+**Launch Timeline:**
+1. **Week 1**: Deploy FIZZ on Solana, create liquidity pool
+2. **Week 2-4**: Enable game redemptions, build community
+3. **Month 2**: Bridge to XRP Ledger
+4. **Month 3**: Bridge to Ethereum
+5. **Ongoing**: Additional DEX listings and partnerships
+
+### Cross-Chain Expansion
+
+**Phase 2: XRP Ledger**
+- Bridge liquidity from Solana treasury
+- List on XRPL DEX and Sologenic
+- Target: 4M FIZZ liquidity
+
+**Phase 3: Ethereum**
+- Deploy wrapped FIZZ as ERC20
+- List on Uniswap V3
+- Target: 2M FIZZ liquidity
+
+**Bridge Mechanism:**
+- Lock tokens on Solana treasury
+- Unlock equivalent on target chain
+- Maintain 77M total supply across all chains
+
+---

@@ -11,12 +11,36 @@ You now have everything ready to deploy a **77 million supply FIZZ token** with 
 ```
 Token Name:      FIZZ Token (Atomic Fizz Caps)
 Total Supply:    77,000,000 FIZZ (FIXED - pre-minted)
+Native Chain:    Solana (SPL Token)
 Decimals:        6
 Distribution:    Treasury-Based (NO MINTING)
-Chains:          XRP Ledger, Solana, Ethereum
+Bridge Chains:   XRP Ledger, Ethereum
+
+Initial Launch:  Solana with 5 SOL liquidity
+Target Price:    $0.0001 per FIZZ
 ```
 
 ---
+
+---
+
+## 🚀 RECOMMENDED: Start with Solana
+
+**For 5 SOL Initial Launch:**
+- See: `QUICK_LAUNCH_5SOL.md` - Quick start guide
+- See: `SOLANA_LAUNCH_GUIDE.md` - Comprehensive guide
+
+**Why Solana First:**
+- Native token standard (SPL)
+- Low fees (<$0.01 per transaction)
+- Fast confirmations (~400ms)
+- Strong DeFi ecosystem
+- Gaming-friendly infrastructure
+
+**Then bridge to:**
+- XRP Ledger (lower fees for payments)
+- Ethereum (broader ecosystem access)
+
 
 ## 🏦 Treasury Distribution Model
 
