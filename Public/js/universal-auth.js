@@ -116,22 +116,32 @@ class UniversalAuth {
             
             // Check if Google Identity Services is available
             if (window.google && window.google.accounts && window.google.accounts.id) {
-                // Fetch Google Client ID from backend (never hardcode credentials)
-                const response = await fetch('/api/auth/google/config');
-                const config = await response.json();
-                
-                if (!config.available || !config.clientId) {
-                    throw new Error('Google Sign-In not configured on server');
+                try {
+                    // Fetch Google Client ID from backend (never hardcode credentials)
+                    const response = await fetch('/api/auth/google/config');
+                    
+                    if (!response.ok) {
+                        throw new Error('Google Sign-In configuration endpoint not available');
+                    }
+                    
+                    const config = await response.json();
+                    
+                    if (!config.available || !config.clientId) {
+                        throw new Error('Google Sign-In not configured on server');
+                    }
+                    
+                    window.google.accounts.id.initialize({
+                        client_id: config.clientId, // Client ID from server (safe to be public)
+                        callback: (response) => this.handleGoogleCallback(response),
+                        auto_select: false,
+                        cancel_on_tap_outside: true
+                    });
+                    
+                    window.google.accounts.id.prompt();
+                } catch (fetchError) {
+                    console.error('Failed to initialize Google Sign-In:', fetchError);
+                    throw new Error('Google Sign-In not available. Please use Firebase auth instead.');
                 }
-                
-                window.google.accounts.id.initialize({
-                    client_id: config.clientId, // Client ID from server (safe to be public)
-                    callback: (response) => this.handleGoogleCallback(response),
-                    auto_select: false,
-                    cancel_on_tap_outside: true
-                });
-                
-                window.google.accounts.id.prompt();
             } else if (navigator.credentials && navigator.credentials.get) {
                 // Fallback: Use Credential Management API (Chrome, Edge, Opera)
                 try {

@@ -229,6 +229,8 @@ If you're still having issues after following this guide:
    - Specific error message from browser console
    - What you've tried so far
    - Whether it works locally or only fails in production
+   
+   **Create an issue at:** https://github.com/Unwrenchable/9dttt/issues
 
 2. Check Firebase Status Page:
    - https://status.firebase.google.com/
