@@ -351,7 +351,7 @@ class AuthUI {
             await firebase.auth().signInWithPopup(provider);
             this.hide();
         } catch (error) {
-            console.error('Google login error:', error);
+            console.error('⚠️ Google login failed:', error.message);
             alert('Google login failed: ' + (error.message || 'Please try again.'));
         }
     }
@@ -366,7 +366,7 @@ class AuthUI {
             await firebase.auth().signInWithPopup(provider);
             this.hide();
         } catch (error) {
-            console.error('Apple login error:', error);
+            console.error('⚠️ Apple login failed:', error.message);
             alert('Apple login failed: ' + (error.message || 'Please try again.'));
         }
     }
@@ -461,7 +461,7 @@ class AuthUI {
             await window.unifiedAuth.continueAsGuest();
             this.hide();
         } catch (error) {
-            console.error('Guest login error:', error);
+            console.error('⚠️ Guest login failed:', error.message);
             alert('Guest login failed. Please try again.');
         }
     }
