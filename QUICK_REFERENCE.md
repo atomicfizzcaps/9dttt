@@ -138,15 +138,16 @@ No env vars needed! API calls are proxied via `vercel.json`
 ## Next Steps
 
 1. ✅ Push code to GitHub
-2. ⬜ **[CREATE RENDER SERVICE](SETUP_RENDER.md)** ← Start here!
-3. ⬜ Get your actual Render URL
-4. ⬜ Update vercel.json with real Render URL
-5. ⬜ Set custom domain in Vercel (optional)
-6. ⬜ Test auth flow end-to-end
+2. ✅ Backend deployed to Render (ninedttt.onrender.com)
+3. ✅ Frontend deployed to Vercel (9dttt.vercel.app)
+4. ⏳ Wait ~2 min for Vercel to rebuild with new config
+5. ⬜ Test auth flow end-to-end
+6. ⬜ Set custom domain (d9ttt.com) in Vercel (optional)
 7. ⬜ Monitor logs for issues
 
 ---
 
 Need help? 
-- **First time setup**: [SETUP_RENDER.md](SETUP_RENDER.md) ← Start here!
+- **Backend working**: ✅ <https://ninedttt.onrender.com/api/health>
+- **Frontend deploying**: ⏳ <https://9dttt.vercel.app>
 - **Full guide**: [DEPLOYMENT_SPLIT.md](DEPLOYMENT_SPLIT.md)
