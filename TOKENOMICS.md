@@ -1,173 +1,221 @@
-# FIZZ Token Tokenomics - 10 Million Supply
+# FIZZ Token Tokenomics - Fixed Supply Treasury Model
 
 ## 🪙 Token Overview
 
-**Token Name**: FIZZ Token  
-**Total Supply**: 10,000,000 FIZZ (fixed, never changes)  
+**Token Name**: FIZZ Token (Atomic Fizz Caps)  
+**Total Supply**: 10,000,000 FIZZ (FIXED - pre-minted at launch)  
 **Decimals**: 6  
-**Bridge Type**: Burn-and-Mint  
+**Distribution Model**: Treasury-Based (NO MINTING)  
 **Chains**: XRP Ledger, Solana, Ethereum
 
 ---
 
-## 🔥 Burn-and-Mint Bridge Mechanism
+## 🏦 Treasury Distribution Model
 
 ### Core Principle
-The total circulating supply **NEVER exceeds 10 million** across all chains combined.
+**All 10 million FIZZ tokens are pre-minted at launch and held in a treasury wallet.**
+
+NO additional tokens will EVER be created. The treasury DISTRIBUTES tokens to players - it does NOT mint new ones.
 
 ### How It Works
 
 ```
-Total Supply = XRP Supply + Solana Supply + Ethereum Supply = 10,000,000 FIZZ
+Total Supply = 10,000,000 FIZZ (fixed forever)
+Treasury Wallet = Holds all tokens
+Distribution = Treasury SENDS tokens to players
 ```
 
-When bridging tokens between chains:
-1. **Source Chain**: Tokens are **BURNED** (destroyed)
-2. **Target Chain**: Equivalent tokens are **MINTED** (created)
-3. **Net Effect**: Total supply remains constant
-
-### Example Flow
-
-**Initial State:**
-- XRP: 10,000,000 FIZZ (all supply starts here)
-- Solana: 0 FIZZ
-- Ethereum: 0 FIZZ
-- **Total**: 10,000,000 ✅
-
-**User bridges 100,000 FIZZ from XRP to Solana:**
-- XRP: 9,900,000 FIZZ (100k locked/burned)
-- Solana: 100,000 FIZZ (100k minted)
-- Ethereum: 0 FIZZ
-- **Total**: 10,000,000 ✅
-
-**Another user bridges 50,000 FIZZ from Solana to Ethereum:**
-- XRP: 9,900,000 FIZZ
-- Solana: 50,000 FIZZ (50k burned)
-- Ethereum: 50,000 FIZZ (50k minted)
-- **Total**: 10,000,000 ✅
+**NOT burn-and-mint!** Instead:
+1. **Treasury Holds**: All tokens pre-minted and secured
+2. **Players Earn**: In-game rewards (virtual CAPS)
+3. **Redemption**: Players claim real FIZZ from treasury
+4. **Multi-Chain**: Treasury distributes on each chain
 
 ---
 
 ## 📊 Initial Distribution Strategy
 
-### Phase 1: XRP Testnet Launch
-```
-XRP Issuer Account:    10,000,000 FIZZ (locked for bridge)
-XRP Distributor:       For initial airdrops/testing
-Solana Mint:           0 FIZZ (program will mint as needed)
-Ethereum Contract:     0 FIZZ (contract will mint as needed)
-```
+### Total Supply: 10,000,000 FIZZ (Fixed)
 
-### Bridge Reserve Allocation
 ```
-Gaming Rewards Pool:   3,000,000 FIZZ (30%)
-Liquidity Incentives:  2,000,000 FIZZ (20%)
-Community Airdrops:    1,000,000 FIZZ (10%)
-Bridge Operations:       500,000 FIZZ (5%)
-Team & Development:    1,500,000 FIZZ (15%)
-Ecosystem Reserve:     2,000,000 FIZZ (20%)
+Treasury Reserve:      4,000,000 FIZZ (40%)
+├─ Gaming Rewards Pool
+├─ Airdrop Campaigns
+├─ Community Events
+└─ Future Distribution
+
+Gaming Rewards:        2,000,000 FIZZ (20%)
+├─ Crypto Quest rewards
+├─ Pong rewards
+├─ Backgammon rewards
+└─ All other games
+
+Liquidity Pools:       1,500,000 FIZZ (15%)
+├─ DEX liquidity
+├─ Bridge liquidity
+└─ Market making
+
+Community/Marketing:   1,000,000 FIZZ (10%)
+├─ Airdrops
+├─ Promotions
+└─ Partnerships
+
+Team & Development:    1,000,000 FIZZ (10%)
+├─ Core team (vested)
+├─ Advisors
+└─ Development fund
+
+Early Supporters:        500,000 FIZZ (5%)
+├─ Beta testers
+├─ Early backers
+└─ Initial liquidity
 ```
 
 ---
 
-## 🌉 Bridge Operations
+## 🎮 Two-Tier System
 
-### Lock-and-Mint (XRP → Solana/Ethereum)
+### 1. IN-GAME CAPS (Virtual Currency)
 
-1. User sends FIZZ to XRP bridge address
-2. XRP bridge **locks** tokens (holds in escrow)
-3. Bridge relayer verifies transaction
-4. Bridge **mints** equivalent FIZZ on target chain
-5. User receives FIZZ on target chain
+**What they are:**
+- Server-side bookkeeping
+- Virtual game currency
+- NOT blockchain tokens
+- Track gameplay progress
 
-**Technical Implementation:**
+**How players earn:**
+- Complete quests → Earn CAPS
+- Win battles → Earn CAPS
+- Discover locations → Earn CAPS
+- Trade with NPCs → Earn CAPS
+
+**Redis storage:**
 ```javascript
-// XRP: Lock tokens
-await xrplClient.payment({
-    from: userAddress,
-    to: bridgeLockAddress,
-    amount: { currency: 'FIZZ', value: '1000', issuer: issuerAddress }
-});
-
-// Solana: Mint tokens
-await solanaProgram.mintTo({
-    amount: 1000 * 10**6, // 1000 FIZZ with 6 decimals
-    destination: userTokenAccount
-});
+player:wallet:profile → { caps: 5000, ... }
 ```
 
-### Burn-and-Unlock (Solana → XRP)
+### 2. REAL FIZZ TOKENS (Blockchain Assets)
 
-1. User burns FIZZ on Solana (tokens destroyed)
-2. Bridge relayer verifies burn transaction
-3. Bridge **unlocks** equivalent FIZZ on XRP
-4. User receives FIZZ on XRP
+**What they are:**
+- Actual SPL tokens on Solana
+- Real cryptocurrency
+- Blockchain verified
+- Can be traded/sold
 
-**Technical Implementation:**
+**How players get them:**
+- Redeem in-game CAPS for FIZZ
+- Treasury sends tokens to player wallet
+- Airdrop campaigns
+- Special events
+
+**Redemption example:**
 ```javascript
-// Solana: Burn tokens
-await solanaProgram.burn({
-    amount: 1000 * 10**6,
-    source: userTokenAccount
-});
-
-// XRP: Unlock tokens
-await xrplClient.payment({
-    from: bridgeLockAddress,
-    to: userAddress,
-    amount: { currency: 'FIZZ', value: '1000', issuer: issuerAddress }
-});
+// Player has 1000 in-game CAPS
+// Redeems for FIZZ tokens
+Treasury sends: 100 FIZZ → Player wallet
+In-game CAPS: 1000 → 0 (consumed)
 ```
-
-### Burn-and-Mint (Solana ↔ Ethereum)
-
-1. User burns FIZZ on source chain
-2. Bridge verifies burn
-3. Bridge mints FIZZ on target chain
-4. User receives tokens
 
 ---
 
-## 💰 Bridge Fees
+## 🌉 Multi-Chain Distribution
+
+### Lock-and-Unlock Bridge (NOT Burn-and-Mint!)
+
+**XRP Treasury:** Holds X FIZZ  
+**Solana Treasury:** Holds Y FIZZ  
+**Ethereum Treasury:** Holds Z FIZZ  
+
+**Total:** X + Y + Z = 10,000,000 FIZZ ✅
+
+### Bridge Operations
+
+**User bridges 100 FIZZ from Solana to Ethereum:**
+
+1. **Lock** on Solana:
+   - User sends 100 FIZZ to Solana treasury
+   - Tokens LOCKED (not burned)
+   - Solana treasury: Y + 100
+
+2. **Unlock** on Ethereum:
+   - Ethereum treasury sends 100 FIZZ to user
+   - Tokens UNLOCKED (not minted)
+   - Ethereum treasury: Z - 100
+
+3. **Result:**
+   - Total supply: Still 10M ✅
+   - User has tokens on Ethereum
+   - Treasuries balanced
+
+**Example Flow:**
+```
+Initial State:
+├─ XRP Treasury:      5,000,000 FIZZ
+├─ Solana Treasury:   3,000,000 FIZZ
+├─ Ethereum Treasury: 2,000,000 FIZZ
+└─ Total:            10,000,000 FIZZ ✅
+
+User bridges 500K from Solana to XRP:
+├─ XRP Treasury:      5,500,000 FIZZ (+500K)
+├─ Solana Treasury:   2,500,000 FIZZ (-500K)
+├─ Ethereum Treasury: 2,000,000 FIZZ (unchanged)
+└─ Total:            10,000,000 FIZZ ✅
+```
+
+---
+
+## 💰 Bridge Fees & Treasury
 
 **Fee Structure**: 1% per bridge transfer
 
-**Fee Distribution:**
-- 0.5% → Bridge operations & maintenance
-- 0.3% → Liquidity providers
-- 0.2% → Protocol treasury
-
-**Example:**
+**Fee Collection:**
 - User bridges 1,000 FIZZ
 - Fee: 10 FIZZ (1%)
-- User receives: 990 FIZZ on target chain
-- Fee goes to bridge operations
+- User receives: 990 FIZZ
+- **Fee goes to treasury** (not burned!)
+
+**Treasury grows from:**
+- Bridge fees
+- Trading fees (from Fizz.fun)
+- Unclaimed redemptions
+- Expired reward pools
 
 ---
 
 ## 🎮 Gaming Integration
 
-### Token Rewards
-
-Players earn FIZZ tokens by playing games:
-
-**Crypto Quest:**
-- 1 FIZZ per 100 points
-- Max 100 FIZZ per game
-
-**Pong:**
-- 1 FIZZ per 50 points
-- Max 50 FIZZ per game
-
-**Backgammon:**
-- 1 FIZZ per 75 points
-- Max 75 FIZZ per game
-
 ### Reward Distribution
 
-All game rewards are distributed on **XRP Ledger** by default (lowest fees).
+**Players earn IN-GAME CAPS** for gameplay:
 
-Players can then bridge to Solana/Ethereum if desired.
+**Crypto Quest:**
+- 100 points = 1 in-game CAP
+- Max 100 CAPS per game
+- Redeem 10 CAPS = 1 FIZZ from treasury
+
+**Pong:**
+- 50 points = 1 in-game CAP
+- Max 50 CAPS per game
+- Redeem 10 CAPS = 1 FIZZ from treasury
+
+**Backgammon:**
+- 75 points = 1 in-game CAP
+- Max 75 CAPS per game
+- Redeem 10 CAPS = 1 FIZZ from treasury
+
+### Redemption Process
+
+```javascript
+// Player gameplay
+Play Crypto Quest → Score 1000 points
+Earn → 10 in-game CAPS
+
+// Player redemption
+Request: Redeem 10 CAPS for FIZZ
+Backend: Verify CAPS balance
+Treasury: Send 1 FIZZ to player wallet
+Update: Player CAPS - 10, FIZZ balance + 1
+```
 
 ---
 
@@ -175,65 +223,86 @@ Players can then bridge to Solana/Ethereum if desired.
 
 ### Supply Monitoring
 
-Bridge relayer constantly monitors:
+All treasuries monitored:
 ```javascript
 const totalSupply = 
-    await getXRPSupply() + 
-    await getSolanaSupply() + 
-    await getEthereumSupply();
+    await getXRPTreasuryBalance() + 
+    await getSolanaTreasuryBalance() + 
+    await getEthereumTreasuryBalance();
 
-assert(totalSupply <= 10000000, 'Total supply exceeded!');
+// Should always equal initial mint
+assert(totalSupply === 10_000_000, 'Supply mismatch!');
 ```
 
 ### Audit Trail
 
-Every bridge transaction is recorded:
-- Source chain transaction hash
-- Destination chain transaction hash
-- Amount transferred
+Every distribution recorded:
+- Treasury transaction hash
+- Recipient address
+- Amount sent
 - Timestamp
-- User addresses
-- Bridge fee collected
+- Reason (redemption, airdrop, reward)
 
-### Emergency Circuit Breaker
+### Treasury Security
 
-If total supply exceeds 10M:
-1. Bridge operations halt immediately
-2. Alert sent to operators
-3. Investigation initiated
-4. Manual resolution required
+**Multi-Sig Wallet:**
+- Requires 3 of 5 signatures
+- Time-locked withdrawals
+- Rate limits on distributions
+- Emergency pause functionality
 
 ---
 
-## 📈 Supply Tracking
+## 📈 Supply Tracking Dashboard
 
-### Real-Time Dashboard
+### Real-Time Monitoring
 
-Track supply distribution at:
+Track distribution at:
 ```
 https://atomicfizzcaps.xyz/supply
 ```
 
 **Displays:**
-- XRP Ledger: X,XXX,XXX FIZZ (XX%)
-- Solana: X,XXX,XXX FIZZ (XX%)
-- Ethereum: X,XXX,XXX FIZZ (XX%)
-- **Total**: 10,000,000 FIZZ ✅
+```
+XRP Treasury:       5,000,000 FIZZ (50%)
+Solana Treasury:    3,000,000 FIZZ (30%)
+Ethereum Treasury:  2,000,000 FIZZ (20%)
+──────────────────────────────────────
+Total Supply:      10,000,000 FIZZ ✅
+
+Distributed:        3,500,000 FIZZ (35%)
+In Treasuries:      6,500,000 FIZZ (65%)
+```
 
 ### API Endpoints
 
 ```javascript
-// Get total supply across all chains
+// Get total supply (always 10M)
 GET /api/token/total-supply
-Response: { total: "10000000", chains: {...} }
+Response: { 
+  total: "10000000",
+  distributed: "3500000",
+  inTreasury: "6500000"
+}
 
-// Get supply on specific chain
-GET /api/token/supply?chain=xrp
-Response: { chain: "xrp", supply: "9500000" }
+// Get treasury balances per chain
+GET /api/token/treasuries
+Response: {
+  xrp: "5000000",
+  solana: "3000000", 
+  ethereum: "2000000"
+}
 
-// Get user balance across all chains
+// Get user balance (all chains)
 GET /api/token/balance/:address
-Response: { xrp: "100", solana: "50", ethereum: "0" }
+Response: {
+  inGameCaps: "100",
+  fizzTokens: {
+    xrp: "50",
+    solana: "30",
+    ethereum: "20"
+  }
+}
 ```
 
 ---
@@ -242,29 +311,27 @@ Response: { xrp: "100", solana: "50", ethereum: "0" }
 
 ### XRP Testnet Token
 - [x] Deploy FIZZ token with 10M supply
-- [x] Set up issuer account
-- [x] Create distributor account
-- [x] Lock initial supply in bridge reserve
-- [x] Document tokenomics
+- [x] Set up treasury wallet
+- [x] Lock entire supply in treasury
+- [x] Test distribution mechanics
 
 ### Solana Devnet Token
-- [ ] Deploy SPL token program
-- [ ] Set mint authority to bridge program
-- [ ] Set up burn functionality
-- [ ] Test mint/burn operations
+- [ ] Deploy SPL token (10M supply)
+- [ ] Set up treasury wallet
+- [ ] Disable minting authority
+- [ ] Test distribution
 
 ### Ethereum Sepolia Token
-- [ ] Deploy ERC20 contract
-- [ ] Set minter role to bridge contract
-- [ ] Set burner functionality
+- [ ] Deploy ERC20 (10M supply)
+- [ ] Set up treasury wallet
+- [ ] Revoke minter role
 - [ ] Verify on Etherscan
 
 ### Bridge Infrastructure
-- [ ] Deploy bridge smart contracts
-- [ ] Set up relayer service
-- [ ] Implement supply monitoring
+- [ ] Deploy lock/unlock contracts
+- [ ] Set up treasury on each chain
 - [ ] Test cross-chain transfers
-- [ ] Enable circuit breaker
+- [ ] Enable supply monitoring
 
 ---
 
@@ -275,8 +342,9 @@ Response: { xrp: "100", solana: "50", ethereum: "0" }
 {
   "currency": "FIZZ",
   "issuer": "rXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-  "value": "10000000",
-  "decimals": 6
+  "totalSupply": "10000000",
+  "decimals": 6,
+  "mintingDisabled": true
 }
 ```
 
@@ -284,25 +352,24 @@ Response: { xrp: "100", solana: "50", ethereum: "0" }
 ```rust
 pub struct FizzToken {
     pub mint: Pubkey,
-    pub decimals: u8,  // 6
-    pub supply: u64,   // Variable (0 to 10M)
-    pub mint_authority: Pubkey,  // Bridge program
+    pub decimals: u8,         // 6
+    pub supply: u64,          // 10_000_000 * 10^6
+    pub mint_authority: None, // Disabled after initial mint
 }
 ```
 
 ### Ethereum ERC20
 ```solidity
-contract FizzToken is ERC20Burnable, AccessControl {
-    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
-    uint256 public constant MAX_SUPPLY = 10_000_000 * 10**6;
+contract FizzToken is ERC20, Ownable {
+    uint256 public constant TOTAL_SUPPLY = 10_000_000 * 10**6;
     
-    function mint(address to, uint256 amount) 
-        external 
-        onlyRole(MINTER_ROLE) 
-    {
-        require(totalSupply() + amount <= MAX_SUPPLY);
-        _mint(to, amount);
+    constructor() ERC20("Fizz Token", "FIZZ") {
+        _mint(msg.sender, TOTAL_SUPPLY);
+        // Renounce ownership to prevent future minting
+        renounceOwnership();
     }
+    
+    // No mint function - supply is fixed forever
 }
 ```
 
@@ -310,16 +377,19 @@ contract FizzToken is ERC20Burnable, AccessControl {
 
 ## ⚠️ Important Notes
 
-1. **No Inflation**: Total supply is capped at 10M forever
-2. **No Duplication**: Tokens cannot exist on multiple chains simultaneously
-3. **Atomic Swaps**: Bridge transfers are atomic (succeed or fail completely)
-4. **Verifiable**: All supply changes are on-chain and auditable
-5. **Testnet First**: All testing on testnets before mainnet deployment
+1. **No Inflation**: Total supply capped at 10M forever
+2. **No Minting**: After initial creation, no new tokens can be made
+3. **Treasury Model**: All tokens held in secure wallets
+4. **Distribution Only**: Treasury sends existing tokens
+5. **Multi-Chain**: Same total supply, distributed across chains
+6. **Verifiable**: All distributions are on-chain and auditable
+7. **Two-Tier**: In-game CAPS (virtual) vs FIZZ (real blockchain tokens)
 
 ---
 
 ## 🔗 Resources
 
+- **AFC Repository**: https://github.com/Unwrenchable/ATOMIC-FIZZ-CAPS-VAULT-77-WASTELAND-GPS
 - **XRP Testnet Explorer**: https://testnet.xrpl.org/
 - **Solana Devnet Explorer**: https://explorer.solana.com/?cluster=devnet
 - **Ethereum Sepolia Explorer**: https://sepolia.etherscan.io/
@@ -329,5 +399,6 @@ contract FizzToken is ERC20Burnable, AccessControl {
 ---
 
 **AtomicFizz Ecosystem** - atomicfizzcaps.xyz  
-**Total Supply**: 10,000,000 FIZZ (forever)  
+**Total Supply**: 10,000,000 FIZZ (fixed forever)  
+**Distribution Model**: Treasury-Based (NO MINTING)  
 **Updated**: 2026-02-07

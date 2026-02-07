@@ -2,67 +2,75 @@
 
 ## ✅ What's Been Set Up
 
-You now have everything ready to deploy a **10 million supply FIZZ token** with a **burn-and-mint cross-chain bridge**.
+You now have everything ready to deploy a **10 million supply FIZZ token** with a **treasury-based distribution model** (matching AFC tokenomics).
 
 ---
 
 ## 🪙 Token Specifications
 
 ```
-Token Name:      FIZZ Token
-Total Supply:    10,000,000 FIZZ
+Token Name:      FIZZ Token (Atomic Fizz Caps)
+Total Supply:    10,000,000 FIZZ (FIXED - pre-minted)
 Decimals:        6
-Bridge Type:     Burn-and-Mint
+Distribution:    Treasury-Based (NO MINTING)
 Chains:          XRP Ledger, Solana, Ethereum
 ```
 
 ---
 
-## 🔥 How Burn-and-Mint Works
+## 🏦 Treasury Distribution Model
 
-### The Magic Formula
+### The Key Difference from Burn-Mint
+
+**AFC Model (CORRECT):**
 ```
-Total Supply = XRP + Solana + Ethereum = 10,000,000 (constant)
+✅ All 10M tokens pre-minted at launch
+✅ Treasury wallet holds all tokens
+✅ Treasury DISTRIBUTES tokens (sends existing)
+✅ NO minting after launch
+✅ NO burning (tokens locked/unlocked in treasuries)
 ```
+
+**NOT Burn-and-Mint!**
 
 ### Visual Example
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  INITIAL STATE: All tokens on XRP                      │
+│  INITIAL STATE: All tokens in XRP Treasury             │
 ├─────────────────────────────────────────────────────────┤
-│  XRP:       10,000,000 FIZZ  ████████████████████████  │
-│  Solana:             0 FIZZ                             │
-│  Ethereum:           0 FIZZ                             │
-│  TOTAL:     10,000,000 FIZZ  ✅                         │
+│  XRP Treasury:       10,000,000 FIZZ  ████████████████ │
+│  Solana Treasury:             0 FIZZ                    │
+│  Ethereum Treasury:           0 FIZZ                    │
+│  TOTAL:              10,000,000 FIZZ  ✅                │
 └─────────────────────────────────────────────────────────┘
 
-          👤 User bridges 3M FIZZ to Solana
+          📦 Distribute 4M to Solana Treasury
                         ⬇️
           
 ┌─────────────────────────────────────────────────────────┐
-│  AFTER BRIDGE: Tokens burned on XRP, minted on Solana  │
+│  AFTER DISTRIBUTION: Tokens spread across treasuries   │
 ├─────────────────────────────────────────────────────────┤
-│  XRP:        7,000,000 FIZZ  ██████████████            │
-│  Solana:     3,000,000 FIZZ  ██████                     │
-│  Ethereum:           0 FIZZ                             │
-│  TOTAL:     10,000,000 FIZZ  ✅                         │
+│  XRP Treasury:        4,000,000 FIZZ  ████████         │
+│  Solana Treasury:     4,000,000 FIZZ  ████████         │
+│  Ethereum Treasury:   2,000,000 FIZZ  ████             │
+│  TOTAL:              10,000,000 FIZZ  ✅                │
 └─────────────────────────────────────────────────────────┘
 
-          👤 User bridges 2M FIZZ to Ethereum
+          👤 User bridges 1M from Solana to XRP
                         ⬇️
           
 ┌─────────────────────────────────────────────────────────┐
-│  FINAL STATE: Distributed across 3 chains              │
+│  AFTER BRIDGE: Tokens locked/unlocked in treasuries    │
 ├─────────────────────────────────────────────────────────┤
-│  XRP:        7,000,000 FIZZ  ██████████████            │
-│  Solana:     1,000,000 FIZZ  ██                         │
-│  Ethereum:   2,000,000 FIZZ  ████                       │
-│  TOTAL:     10,000,000 FIZZ  ✅                         │
+│  XRP Treasury:        5,000,000 FIZZ  ██████████       │
+│  Solana Treasury:     3,000,000 FIZZ  ██████           │
+│  Ethereum Treasury:   2,000,000 FIZZ  ████             │
+│  TOTAL:              10,000,000 FIZZ  ✅                │
 └─────────────────────────────────────────────────────────┘
 ```
 
-**Key Point**: Notice the total NEVER changes! When tokens burn on one chain, they mint on another.
+**Key Point**: Tokens are LOCKED/UNLOCKED in treasuries, NOT burned/minted!
 
 ---
 
@@ -76,35 +84,27 @@ node scripts/xrp-testnet-token.js
 ```
 
 **What happens:**
-1. ✅ Creates issuer wallet on XRP testnet
-2. ✅ Creates distributor wallet
-3. ✅ Issues 10,000,000 FIZZ tokens
-4. ✅ Creates 3 test user accounts
-5. ✅ Sets up trust lines
-6. ✅ Tests token transfers
-7. ✅ Generates bridge configuration
+1. ✅ Creates treasury wallet on XRP testnet
+2. ✅ Issues 10,000,000 FIZZ tokens
+3. ✅ ALL tokens go to treasury (NOT distributed yet)
+4. ✅ Creates distributor wallet for operations
+5. ✅ Creates 3 test user accounts
+6. ✅ Sets up trust lines
+7. ✅ Tests token transfers
+8. ✅ Generates bridge configuration
 
 **Output you'll see:**
 ```
 🚀 Starting XRP Testnet Token Setup...
 ════════════════════════════════════════════════════════════
 
-🪙 Creating Token Issuer Account...
-💰 Creating Token Issuer...
+🏦 Creating Treasury Account (holds ALL 10M tokens)...
+💰 Creating Treasury...
    Address: rXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
    Seed: sXXXXXXXXXXXXXXXXXXXXXXXX
    Balance: 1000 XRP
 
-🏦 Creating Token Distributor Account...
-💰 Creating Token Distributor...
-   Address: rYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-   Seed: sYYYYYYYYYYYYYYYYYYYYYYY
-   Balance: 1000 XRP
-
-🤝 Setting up Trust Line...
-✅ Trust Line Established
-
-💸 Issuing Tokens...
+💸 Issuing ALL 10,000,000 FIZZ to Treasury...
 ✅ Tokens Issued Successfully!
 
 ✅ Setup Complete!
@@ -113,20 +113,53 @@ node scripts/xrp-testnet-token.js
 📋 Token Information:
    Currency: FIZZ
    Issuer: rXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-   Distributor: rYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-   Total Supply: 10000000
+   Treasury: rYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+   Total Supply: 10,000,000 (ALL in treasury)
 
 ⚠️  IMPORTANT: Save these credentials securely!
-   Issuer Seed: sXXXXXXXXXXXXXXXXXXXXXXX
-   Distributor Seed: sYYYYYYYYYYYYYYYYYYYYYYY
+   Treasury Seed: sYYYYYYYYYYYYYYYYYYYYYYY
 ```
 
 ### Step 2: Verify on XRP Explorer
 
-1. Copy your issuer address
+1. Copy your treasury address
 2. Visit: https://testnet.xrpl.org/
 3. Paste address and search
-4. See your 10M FIZZ token! 🎉
+4. See your 10M FIZZ in treasury! 🎉
+
+---
+
+## 📊 Two-Tier System
+
+### Tier 1: IN-GAME CAPS (Virtual Currency)
+
+**What they are:**
+- Server-side bookkeeping (Redis)
+- Virtual game currency
+- NOT blockchain tokens
+
+**How players earn:**
+```
+Play Crypto Quest → Score 1000 points → Earn 10 CAPS
+Win Pong match → Score 500 points → Earn 10 CAPS
+Complete quest → Earn 50 CAPS
+```
+
+### Tier 2: REAL FIZZ TOKENS (Blockchain Assets)
+
+**What they are:**
+- Real SPL/XRP tokens
+- On-chain verified
+- Can trade/sell
+
+**How players get them:**
+```
+Player: Has 100 in-game CAPS
+Action: Request redemption
+Backend: Verify CAPS balance
+Treasury: Send 10 FIZZ to player wallet
+Result: Player CAPS -100, FIZZ +10
+```
 
 ---
 
@@ -135,111 +168,95 @@ node scripts/xrp-testnet-token.js
 From your 10 million supply:
 
 ```
-Gaming Rewards:        3,000,000 FIZZ (30%)
-├─ Crypto Quest rewards
-├─ Pong rewards
-├─ Backgammon rewards
-└─ All other games
+XRP Treasury (Initial):    10,000,000 FIZZ (100%)
+├─ Will distribute to other chains
+├─ Will send rewards to players
+└─ Holds reserve for future
 
-Liquidity Incentives:  2,000,000 FIZZ (20%)
-├─ DEX liquidity pools
-└─ Bridge liquidity
+Target Distribution:
+├─ XRP Treasury:        4,000,000 FIZZ (40%)
+├─ Solana Treasury:     4,000,000 FIZZ (40%)
+└─ Ethereum Treasury:   2,000,000 FIZZ (20%)
 
-Community Airdrops:    1,000,000 FIZZ (10%)
-├─ Early users
-├─ Beta testers
-└─ Community events
-
-Bridge Operations:       500,000 FIZZ (5%)
-├─ Gas fees
-├─ Relayer operations
-└─ Emergency reserves
-
-Team & Development:    1,500,000 FIZZ (15%)
-├─ Core team
-├─ Advisors
-└─ Development fund
-
-Ecosystem Reserve:     2,000,000 FIZZ (20%)
-├─ Future partnerships
-├─ Strategic initiatives
-└─ Long-term growth
+Usage Allocation:
+├─ Gaming Rewards:      2,000,000 FIZZ (20%)
+├─ Liquidity Pools:     1,500,000 FIZZ (15%)
+├─ Community:           1,000,000 FIZZ (10%)
+├─ Team (vested):       1,000,000 FIZZ (10%)
+├─ Early Supporters:      500,000 FIZZ (5%)
+└─ Treasury Reserve:    4,000,000 FIZZ (40%)
 ```
 
 ---
 
 ## 🎮 Gaming Integration
 
-Once deployed, games can reward players:
+Once deployed, games reward players with IN-GAME CAPS:
 
 **Crypto Quest:**
-- Earn up to 100 FIZZ per game
-- 1 FIZZ per 100 points scored
+- Earn up to 100 CAPS per game
+- 100 points = 1 CAP
 
 **Pong:**
-- Earn up to 50 FIZZ per game
-- 1 FIZZ per 50 points scored
+- Earn up to 50 CAPS per game
+- 50 points = 1 CAP
 
 **Backgammon:**
-- Earn up to 75 FIZZ per game
-- 1 FIZZ per 75 points scored
+- Earn up to 75 CAPS per game
+- 75 points = 1 CAP
 
-All rewards distributed on XRP (lowest fees), players can bridge to other chains!
+**Redemption:**
+- 10 CAPS = 1 FIZZ (from treasury)
+- Treasury sends real tokens
+- CAPS are consumed/reset
 
 ---
 
-## 🌉 Next Steps After Deployment
+## 🌉 Multi-Chain Bridge
 
-### Phase 2: Solana Token (Coming Soon)
-```bash
-# Create SPL token with mint authority for bridge
-node scripts/solana-testnet-token.js
-```
+### Lock-Unlock (NOT Burn-Mint!)
 
-### Phase 3: Ethereum Token (Coming Soon)
-```bash
-# Deploy ERC20 with minter role for bridge
-node scripts/ethereum-testnet-token.js
-```
+**How it works:**
 
-### Phase 4: Bridge Relayer
-```bash
-# Start the cross-chain bridge relayer
-node scripts/start-bridge-relayer.js
-```
+1. **User wants to bridge 100 FIZZ from Solana to XRP**
+
+2. **Lock on Solana:**
+   - User sends 100 FIZZ to Solana treasury
+   - Tokens LOCKED in treasury (not burned!)
+   - Solana treasury balance: +100
+
+3. **Unlock on XRP:**
+   - XRP treasury sends 100 FIZZ to user
+   - Tokens UNLOCKED from treasury
+   - XRP treasury balance: -100
+
+4. **Result:**
+   - Total supply: Still 10M ✅
+   - Tokens moved between treasuries
+   - User has FIZZ on target chain
+
+---
+
+## 🔒 Security Features
+
+1. **No Minting**: After initial 10M, NO new tokens
+2. **Treasury Multi-Sig**: Requires multiple signatures
+3. **Rate Limits**: Max transfers per hour/day
+4. **Supply Monitoring**: Always equals 10M
+5. **Audit Trail**: All distributions logged
 
 ---
 
 ## 📚 Documentation
 
 **Quick References:**
-- 📖 `TOKENOMICS.md` - Complete tokenomics guide
+- 📖 `TOKENOMICS.md` - Complete treasury model
 - 📖 `TESTNET_BRIDGE_SETUP.md` - Setup instructions
 - 📖 `BRIDGE_STATUS.md` - Current progress
-- 📖 `QUICKSTART_TESTNET_TOKEN.md` - Quick start
 
 **Configuration:**
-- ⚙️ `bridge-config.example.json` - Bridge config template
-- ⚙️ `scripts/README.md` - Scripts documentation
-
----
-
-## 🔒 Security Reminders
-
-1. **Save Your Seeds!** 
-   - Write down issuer and distributor seeds
-   - Store in secure location
-   - NEVER commit to git
-
-2. **Testnet Only**
-   - These are test tokens
-   - No real value
-   - Practice before mainnet
-
-3. **Supply Monitoring**
-   - Bridge will enforce 10M cap
-   - Circuit breaker for violations
-   - All transactions auditable
+- ⚙️ `bridge-config.example.json` - Treasury config
+- ⚙️ `scripts/README.md` - Scripts docs
 
 ---
 
@@ -247,10 +264,10 @@ node scripts/start-bridge-relayer.js
 
 Before running the script, ensure:
 
-- [ ] You understand burn-and-mint mechanism
+- [ ] You understand treasury distribution model
 - [ ] You have Node.js 18+ installed
 - [ ] You have internet connection (for testnet)
-- [ ] You're ready to save wallet seeds
+- [ ] You're ready to save treasury wallet seed
 - [ ] You've read TOKENOMICS.md
 
 ---
@@ -265,19 +282,28 @@ node scripts/xrp-testnet-token.js
 
 **What you'll get:**
 - ✅ 10,000,000 FIZZ on XRP testnet
-- ✅ Issuer & distributor wallets
+- ✅ Treasury wallet (holds all tokens)
+- ✅ Distributor wallet
 - ✅ 3 test user accounts
 - ✅ Bridge configuration
 - ✅ Full audit trail
 
 ---
 
-## 💡 Pro Tips
+## 💡 Key Differences from Burn-Mint
 
-1. **Test Small First**: Transfer small amounts between test accounts
-2. **Monitor Supply**: Use XRP explorer to verify balances
-3. **Document Everything**: Save all addresses and seeds
-4. **Join Community**: Share your progress!
+**Treasury Model (AFC - Correct):**
+- ✅ Fixed supply (10M forever)
+- ✅ Tokens locked/unlocked in treasuries
+- ✅ NO minting after launch
+- ✅ NO burning
+- ✅ Treasury distributes existing tokens
+
+**Burn-Mint Model (Previous - Incorrect):**
+- ❌ Tokens burned on source chain
+- ❌ New tokens minted on target chain
+- ❌ Requires mint authority
+- ❌ More complex to audit
 
 ---
 
@@ -287,19 +313,14 @@ node scripts/xrp-testnet-token.js
 
 ```bash
 # View documentation
-npm run bridge:info
+npm run tokenomics
+
+# View deployment guide
+npm run deploy:info
 
 # Check bridge status
 cat BRIDGE_STATUS.md
-
-# View tokenomics
-cat TOKENOMICS.md
 ```
-
-**Still need help?**
-- Open GitHub issue
-- Review TESTNET_BRIDGE_SETUP.md
-- Check scripts/README.md
 
 ---
 
@@ -307,13 +328,14 @@ cat TOKENOMICS.md
 
 **Your 10 million supply FIZZ token is ready to deploy!**
 
-The burn-and-mint bridge ensures your total supply stays constant at 10M across all chains. No inflation, no duplication, just pure cross-chain magic! 🔥
+The treasury-based model matches AFC tokenomics: fixed supply, NO minting, treasuries distribute existing tokens across chains. 🏦
 
 ```
 Total Supply Forever = 10,000,000 FIZZ ✨
+Treasury Model = NO MINTING 🚫
 ```
 
 ---
 
 **AtomicFizz Ecosystem** - atomicfizzcaps.xyz  
-**Making cross-chain gaming a reality!** 🎮
+**Making cross-chain gaming a reality with proper tokenomics!** 🎮

@@ -36,9 +36,10 @@
   "bridge": {
     "enabled": true,
     "testMode": true,
-    "mechanism": "burn-and-mint",
+    "mechanism": "lock-unlock",
+    "model": "treasury",
     "totalSupply": "10000000",
-    "description": "Burn-and-Mint Bridge: Total supply constant at 10M across all chains",
+    "description": "Treasury-Based Distribution: Fixed supply, treasuries on each chain lock/unlock tokens",
     "minTransfer": "1",
     "maxTransfer": "10000",
     "feePercent": "1.0",
@@ -46,6 +47,23 @@
       "xrp": "BRIDGE_FEE_ADDRESS",
       "solana": "BRIDGE_FEE_ADDRESS",
       "ethereum": "BRIDGE_FEE_ADDRESS"
+    },
+    "treasuries": {
+      "xrp": {
+        "address": "TO_BE_SET",
+        "initialBalance": "4000000",
+        "description": "XRP treasury holds tokens for distribution"
+      },
+      "solana": {
+        "address": "TO_BE_SET",
+        "initialBalance": "4000000",
+        "description": "Solana treasury holds tokens for distribution"
+      },
+      "ethereum": {
+        "address": "TO_BE_SET",
+        "initialBalance": "2000000",
+        "description": "Ethereum treasury holds tokens for distribution"
+      }
     },
     "confirmations": {
       "xrp": 1,
