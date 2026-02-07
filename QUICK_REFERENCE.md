@@ -3,7 +3,7 @@
 ## URLs
 
 - **Frontend (Vercel)**: <https://d9ttt.com>
-- **Backend (Render)**: <https://9dttt.onrender.com>
+- **Backend (Render)**: <https://ninedttt.onrender.com>
 
 
 ---
@@ -48,7 +48,7 @@ npm start
 
 ```bash
 # Backend health
-curl https://9dttt.onrender.com/api/health
+curl https://ninedttt.onrender.com/api/health
 
 # Frontend
 curl https://d9ttt.com

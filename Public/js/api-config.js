@@ -22,10 +22,10 @@
         development: 'http://localhost:3000',
         
         // Production - backend on Render
-        production: 'https://9dttt.onrender.com',
+        production: 'https://ninedttt.onrender.com',
         
         // Vercel preview - use production backend
-        preview: 'https://9dttt.onrender.com'
+        preview: 'https://ninedttt.onrender.com'
     };
     
     // Determine which backend to use

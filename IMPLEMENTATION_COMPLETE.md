@@ -112,7 +112,7 @@ This will:
 #### Backend to Render
 1. Push to GitHub: `git push origin main`
 2. Render auto-deploys in ~2 minutes
-3. Check: https://9dttt.onrender.com/api/health
+3. Check: https://ninedttt.onrender.com/api/health
 
 #### Frontend to Vercel
 1. Install Vercel CLI: `npm install -g vercel`
@@ -256,8 +256,8 @@ API calls automatically proxied via `vercel.json` rewrites!
 
 ### URLs After Deployment:
 - **Frontend**: https://d9ttt.com (or your-app.vercel.app)
-- **Backend**: https://9dttt.onrender.com
-- **Health Check**: https://9dttt.onrender.com/api/health
+- **Backend**: https://ninedttt.onrender.com
+- **Health Check**: https://ninedttt.onrender.com/api/health
 
 ---
 

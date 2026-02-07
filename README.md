@@ -361,6 +361,6 @@ MIT License - Free to use and modify.
 
 *Strategic Gaming for Everyone*
 
-[🎮 Play Now](https://9dttt.onrender.com) • [🐛 Report Bug](https://github.com/Unwrenchable/9dttt/issues) • [💡 Request Feature](https://github.com/Unwrenchable/9dttt/issues)
+[🎮 Play Now](https://ninedttt.onrender.com) • [🐛 Report Bug](https://github.com/Unwrenchable/9dttt/issues) • [💡 Request Feature](https://github.com/Unwrenchable/9dttt/issues)
 
 </div>

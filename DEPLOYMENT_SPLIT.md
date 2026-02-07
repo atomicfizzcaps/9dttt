@@ -17,7 +17,7 @@ This guide explains how to deploy your application with the backend on Render an
 │ - Static Files  │         │ - WebSockets    │
 │ - Assets        │         │ - Database      │
 └─────────────────┘         └─────────────────┘
-     d9ttt.com          9dttt.onrender.com
+     d9ttt.com          ninedttt.onrender.com
 ```
 
 ---
@@ -68,7 +68,7 @@ Add these in Render Dashboard → Environment:
 
 1. Click "Create Web Service"
 2. Wait for deployment (~2-3 minutes)
-3. Copy your backend URL: `https://9dttt.onrender.com`
+3. Copy your backend URL: `https://ninedttt.onrender.com`
 
 ---
 
@@ -136,7 +136,7 @@ envVars:
 The `vercel.json` rewrites automatically proxy API calls to Render:
 
 - Frontend: `https://d9ttt.com/api/health`
-- Backend: `https://9dttt.onrender.com/api/health`
+- Backend: `https://ninedttt.onrender.com/api/health`
 
 No code changes needed! ✨
 
@@ -147,7 +147,7 @@ No code changes needed! ✨
 ### Test Backend
 
 ```bash
-curl https://9dttt.onrender.com/api/health
+curl https://ninedttt.onrender.com/api/health
 ```
 
 Expected: `{"status":"ok","uptime":...}`
@@ -234,7 +234,7 @@ git push origin main
 
 ```bash
 # Check backend status
-curl https://9dttt.onrender.com/api/health
+curl https://ninedttt.onrender.com/api/health
 
 # View Render logs
 render logs -f
@@ -286,6 +286,6 @@ vercel logs
 Your app is now running:
 
 - **Frontend**: <https://d9ttt.com> (Vercel)
-- **Backend**: <https://9dttt.onrender.com> (Render)
+- **Backend**: <https://ninedttt.onrender.com> (Render)
 
 Both will auto-deploy on every push to `main`!
