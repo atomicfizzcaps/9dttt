@@ -281,11 +281,11 @@ vercel logs
 
 ---
 
-## 🎉 You're Done!
+## 🎉 You're Done
 
 Your app is now running:
 
-- **Frontend**: https://d9ttt.com (Vercel)
-- **Backend**: https://9dttt.onrender.com (Render)
+- **Frontend**: <https://d9ttt.com> (Vercel)
+- **Backend**: <https://9dttt.onrender.com> (Render)
 
 Both will auto-deploy on every push to `main`!
