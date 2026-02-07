@@ -36,6 +36,9 @@
   "bridge": {
     "enabled": true,
     "testMode": true,
+    "mechanism": "burn-and-mint",
+    "totalSupply": "10000000",
+    "description": "Burn-and-Mint Bridge: Total supply constant at 10M across all chains",
     "minTransfer": "1",
     "maxTransfer": "10000",
     "feePercent": "1.0",

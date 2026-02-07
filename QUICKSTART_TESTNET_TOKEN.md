@@ -18,7 +18,7 @@ node scripts/xrp-testnet-token.js
 **What it does:**
 - ✅ Creates 2 new XRP testnet wallets (issuer & distributor)
 - ✅ Funds them from testnet faucet (1000 XRP each)
-- ✅ Issues 1,000,000 FIZZ tokens
+- ✅ Issues 10,000,000 FIZZ tokens
 - ✅ Creates 3 test user accounts
 - ✅ Sets up trust lines
 - ✅ Tests token transfers

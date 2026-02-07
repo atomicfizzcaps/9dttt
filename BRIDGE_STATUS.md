@@ -32,7 +32,7 @@ npm run setup:xrp-testnet
 
 **Expected Output:**
 - Token: FIZZ
-- Supply: 1,000,000
+- Supply: 10,000,000
 - Network: XRP Testnet
 - Accounts: Issuer, Distributor, 3 Test Users
 
@@ -57,8 +57,8 @@ npm run setup:xrp-testnet
 - Create devnet wallet
 - Get SOL from faucet
 - Create SPL token with 6 decimals
-- Mint 1,000,000 tokens
-- Create associated token accounts
+- Configure mint authority for bridge
+- Implement burn functionality
 - Update bridge-config.json
 ```
 

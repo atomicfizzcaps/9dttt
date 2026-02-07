@@ -16,8 +16,9 @@ const xrpl = require('xrpl');
 const CONFIG = {
     testnetServer: 'wss://s.altnet.rippletest.net:51233',
     tokenCurrency: 'FIZZ', // Your token code (3 chars) or hex for longer names
-    tokenValue: '1000000', // Initial supply
+    tokenValue: '10000000', // Total supply: 10 million (constant across all chains)
     decimals: 6,
+    burnMintBridge: true, // Use burn-and-mint mechanism to keep total supply constant
 };
 
 class XRPTestnetTokenManager {
@@ -239,9 +240,12 @@ class XRPTestnetTokenManager {
             bridge: {
                 enabled: true,
                 testMode: true,
+                mechanism: 'burn-and-mint', // Keeps total supply constant at 10M
+                totalSupply: '10000000', // Fixed total across all chains
                 minTransfer: '1',
                 maxTransfer: '10000',
                 fee: '0.01', // 1% bridge fee
+                description: 'Burn-and-Mint: Tokens burned on source chain, minted on target chain'
             }
         };
         
