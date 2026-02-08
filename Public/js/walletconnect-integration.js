@@ -40,10 +40,23 @@ class WalletConnectIntegration {
      */
     async connectEthereum() {
         try {
-            // TODO: Move Infura ID to environment variable for production
-            // Get from server: const config = await fetch('/api/config/walletconnect').then(r => r.json());
-            const infuraId = "9aa3d95b3bc440fa88ea12eaa4456161"; // Public demo key - replace in production
-            
+            // Fetch Infura key from backend config
+            let infuraId;
+            try {
+                const configResponse = await fetch('/api/config');
+                const configData = await configResponse.json();
+                infuraId = configData.config?.infuraKey;
+            } catch (error) {
+                console.warn('Failed to fetch config from backend, using fallback');
+            }
+
+            // Fallback to demo key if not configured (with warning)
+            if (!infuraId) {
+                console.warn('⚠️ No Infura key configured. Using demo key which has rate limits.');
+                console.warn('Please set INFURA_KEY in your .env file for production use.');
+                infuraId = "9aa3d95b3bc440fa88ea12eaa4456161"; // Demo key fallback
+            }
+
             // Create WalletConnect Provider
             this.provider = new window.WalletConnectProvider.default({
                 infuraId: infuraId,
