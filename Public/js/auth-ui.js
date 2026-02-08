@@ -141,7 +141,7 @@ class AuthUI {
                     box-shadow: 0 0 20px rgba(255,215,0,0.5);
                 }
                 
-                .wallet-badge {
+                .recommended-badge {
                     display: inline-block;
                     background: rgba(255,215,0,0.3);
                     padding: 2px 8px;
@@ -327,7 +327,7 @@ class AuthUI {
                 <button class="auth-button auth-button-wallet" onclick="window.authUI.showWalletOptions()">
                     <span class="auth-icon">💎</span>
                     <span>Connect Wallet (XRP/SOL/ETH)</span>
-                    <span class="wallet-badge">✨ RECOMMENDED</span>
+                    <span class="recommended-badge">✨ RECOMMENDED</span>
                 </button>
                 
                 <div class="auth-divider">or</div>

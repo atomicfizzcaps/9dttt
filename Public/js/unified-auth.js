@@ -252,6 +252,12 @@ class UnifiedAuth {
                 })
             });
 
+            // Check for network or server errors
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Server error (${response.status}): ${errorText}`);
+            }
+
             const authResult = await response.json();
 
             if (!authResult.success) {

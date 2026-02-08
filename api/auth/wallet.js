@@ -111,8 +111,13 @@ module.exports = async (req, res) => {
             });
         }
 
-        // Create unique username for wallet
-        const username = `wallet_${chain}_${address.slice(0, 8).toLowerCase()}`;
+        // Create unique username for wallet (using full address hash for uniqueness)
+        const addressHash = require('crypto')
+            .createHash('sha256')
+            .update(address.toLowerCase())
+            .digest('hex')
+            .substring(0, 16);
+        const username = `w_${chain}_${addressHash}`;
         const displayName = wallet ? 
             `${wallet} (${address.slice(0, 6)}...${address.slice(-4)})` :
             `${chain} (${address.slice(0, 6)}...${address.slice(-4)})`;
@@ -126,7 +131,7 @@ module.exports = async (req, res) => {
                 id: uuidv4(),
                 username: username,
                 displayName: displayName,
-                email: `${username}@wallet.9dttt.com`, // Virtual email for JWT compatibility
+                email: `${username}@wallet.reserved.9dttt.internal`, // Reserved domain - cannot be registered
                 wallet: address,
                 chain: chain,
                 walletType: wallet || chain,
