@@ -1,6 +1,7 @@
 /**
  * Arcade Games Shared Styles
  * Common styles for canvas-based arcade games
+ * Enhanced with better visual effects
  */
 
 .game-container {
@@ -14,9 +15,42 @@
 #game-canvas {
     border: 4px solid var(--primary-color);
     border-radius: 8px;
-    box-shadow: 0 0 30px rgba(74, 144, 226, 0.3);
+    box-shadow: 
+        0 0 30px rgba(74, 144, 226, 0.3),
+        0 0 60px rgba(74, 144, 226, 0.1),
+        inset 0 0 20px rgba(0, 0, 0, 0.5);
     max-width: 100%;
-    background: #0a0e27;
+    background: linear-gradient(135deg, #0a0e27 0%, #15192d 100%);
+    transition: box-shadow 0.3s ease;
+    image-rendering: pixelated; /* Crisp pixel art */
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+#game-canvas:hover {
+    box-shadow: 
+        0 0 40px rgba(74, 144, 226, 0.5),
+        0 0 80px rgba(74, 144, 226, 0.2),
+        inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Add subtle scanline effect for retro feel */
+#game-canvas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        transparent 1px,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 3px
+    );
+    pointer-events: none;
+    opacity: 0.3;
 }
 
 /* Gamepad Status Widget */
