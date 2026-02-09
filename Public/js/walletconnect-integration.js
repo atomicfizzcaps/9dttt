@@ -52,12 +52,14 @@ class WalletConnectIntegration {
 
             // Check if Infura key is configured
             if (!infuraId) {
-                const errorMsg = 'WalletConnect requires an Infura API key to function.\n\n' +
-                    'To enable WalletConnect:\n' +
-                    '1. Get a free Infura API key from https://infura.io\n' +
-                    '2. Set INFURA_KEY in your environment variables\n' +
-                    '3. Restart your server\n\n' +
-                    'Alternative: Use MetaMask, Phantom, or other direct wallet connections instead.';
+                const errorMsg = `WalletConnect requires an Infura API key to function.
+
+To enable WalletConnect:
+1. Get a free Infura API key from https://infura.io
+2. Set INFURA_KEY in your environment variables
+3. Restart your server
+
+Alternative: Use MetaMask, Phantom, or other direct wallet connections instead.`;
                 
                 console.error('❌ WalletConnect unavailable: No Infura key configured');
                 console.error('Get your free key at: https://infura.io');
