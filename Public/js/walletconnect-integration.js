@@ -53,7 +53,7 @@ class WalletConnectIntegration {
             // Fallback to demo key if not configured (with warning)
             if (!infuraId) {
                 console.error('❌ No Infura key configured. WalletConnect will not work.');
-                console.error('Please set INFURA_KEY in your .env file to enable WalletConnect.');
+                console.error('Please set INFURA_KEY environment variable in your .env file to enable WalletConnect.');
                 throw new Error('Infura key required for WalletConnect. Please configure INFURA_KEY environment variable.');
             }
 
