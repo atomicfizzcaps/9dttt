@@ -1385,6 +1385,56 @@
                     }
                 });
             }
+            
+            // Keyboard Navigation
+            document.addEventListener('keydown', (e) => {
+                // Arrow keys for navigation
+                if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (focusMode === 'games') navigateGames('up');
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (focusMode === 'games') navigateGames('down');
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    if (focusMode === 'games') {
+                        navigateGames('left');
+                    } else {
+                        navigateFilters('left');
+                    }
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    if (focusMode === 'games') {
+                        navigateGames('right');
+                    } else {
+                        navigateFilters('right');
+                    }
+                }
+                // Enter to select
+                else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    activateCurrentItem();
+                }
+                // Escape to go back or toggle focus mode
+                else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    if (focusMode === 'filters') {
+                        focusMode = 'games';
+                        currentFocus = 0;
+                        updateFocus();
+                    }
+                }
+                // Tab key to switch between filters and games
+                else if (e.key === 'Tab' && !e.shiftKey) {
+                    e.preventDefault();
+                    toggleFocusMode();
+                }
+                // Shift+Tab to go backwards
+                else if (e.key === 'Tab' && e.shiftKey) {
+                    e.preventDefault();
+                    toggleFocusMode();
+                }
+            });
         });
     </script>
 </body>
