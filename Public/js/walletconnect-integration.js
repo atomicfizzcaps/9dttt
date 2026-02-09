@@ -50,11 +50,20 @@ class WalletConnectIntegration {
                 console.warn('Failed to fetch config from backend, using fallback');
             }
 
-            // Fallback to demo key if not configured (with warning)
+            // Check if Infura key is configured
             if (!infuraId) {
-                console.warn('⚠️ No Infura key configured. Using demo key which has rate limits.');
-                console.warn('Please set INFURA_KEY in your .env file for production use.');
-                infuraId = "9aa3d95b3bc440fa88ea12eaa4456161"; // Demo key fallback
+                const errorMsg = `WalletConnect requires an Infura API key to function.
+
+To enable WalletConnect:
+1. Get a free Infura API key from https://infura.io
+2. Set INFURA_KEY in your environment variables
+3. Restart your server
+
+Alternative: Use MetaMask, Phantom, or other direct wallet connections instead.`;
+                
+                console.error('❌ WalletConnect unavailable: No Infura key configured');
+                console.error('Get your free key at: https://infura.io');
+                throw new Error(errorMsg);
             }
 
             // Create WalletConnect Provider
