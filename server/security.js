@@ -336,8 +336,10 @@ class Security {
             );
 
             // Cross-Origin policies
-            res.set('Cross-Origin-Opener-Policy', 'same-origin');
-            res.set('Cross-Origin-Resource-Policy', 'same-origin');
+            // Use same-origin-allow-popups to allow games to open properly
+            res.set('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+            // Use cross-origin to allow game resources to load properly in the browser
+            res.set('Cross-Origin-Resource-Policy', 'cross-origin');
 
             next();
         };
