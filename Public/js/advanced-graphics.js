@@ -317,11 +317,11 @@ class AdvancedGraphics {
         for (let i = 0; i < 200; i++) {
             const x = Math.random() * width;
             const y = Math.random() * height;
-            const height = 5 + Math.random() * 10;
+            const bladeHeight = 5 + Math.random() * 10;
             
             ctx.beginPath();
             ctx.moveTo(x, y);
-            ctx.lineTo(x + (Math.random() - 0.5) * 2, y - height);
+            ctx.lineTo(x + (Math.random() - 0.5) * 2, y - bladeHeight);
             ctx.globalAlpha = 0.6;
             ctx.stroke();
         }

@@ -126,7 +126,7 @@ class ControllerGuide {
         // Create the guide overlay
         this.createOverlay();
         
-        // Listen for keyboard shortcut (Tab + G)
+        // Listen for keyboard shortcut (Ctrl + G)
         document.addEventListener('keydown', (e) => {
             if (e.key === 'g' && e.ctrlKey) {
                 e.preventDefault();
@@ -156,10 +156,10 @@ class ControllerGuide {
 
     checkBackHold(startTime) {
         setTimeout(() => {
-            if (startTime && Date.now() - startTime >= 1500) {
+            if (startTime && Date.now() - startTime >= 2000) {
                 this.toggle();
             }
-        }, 1500);
+        }, 2000);
     }
 
     detectGameType() {
